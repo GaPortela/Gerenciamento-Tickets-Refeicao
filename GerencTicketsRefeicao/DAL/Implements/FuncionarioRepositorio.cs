@@ -5,16 +5,17 @@ using System.Collections.Generic;
 using System.Configuration;
 using GerencTicketsRefeicao.DAL.Interfaces;
 using GerencTicketsRefeicao.Models;
+using System.Linq;
 
-namespace GerencTicketsRefeicao.DAL.Services
+namespace GerencTicketsRefeicao.DAL.Implements
 {
     public class FuncionarioRepositorio : IFuncionarioRepositorio
     {
         private readonly string _connectionString;
 
-        public FuncionarioRepositorio()
+        public FuncionarioRepositorio(string connectionString)
         {
-            _connectionString = ConfigurationManager.ConnectionStrings["DefaultConnection"].ConnectionString;
+            _connectionString = connectionString;
         }
 
         public void Add(Funcionario funcionario)
@@ -55,7 +56,7 @@ namespace GerencTicketsRefeicao.DAL.Services
         {
             using (var connection = new MySqlConnection(_connectionString))
             {
-                return connection.Query<Funcionario>("SELECT * FROM funcionarios").AsList();
+                return connection.Query<Funcionario>("SELECT * FROM funcionarios").ToList();
             }
         }
     }

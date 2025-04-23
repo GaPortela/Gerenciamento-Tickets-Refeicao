@@ -6,15 +6,15 @@ using GerencTicketsRefeicao.DAL.Interfaces;
 using GerencTicketsRefeicao.Models;
 using MySql.Data.MySqlClient;
 
-namespace GerencTicketsRefeicao.DAL.Services
+namespace GerencTicketsRefeicao.DAL.Implements
 {
     public class TicketRepositorio : ITicketRepositorio
     {
         private readonly string _connectionString;
 
-        public TicketRepositorio()
+        public TicketRepositorio(string connectionString)
         {
-            _connectionString = ConfigurationManager.ConnectionStrings["DefaultConnection"].ConnectionString;
+            _connectionString = connectionString;
         }
 
         public void Add(Ticket ticket)

@@ -8,7 +8,7 @@ using GerencTicketsRefeicao.DAL.Interfaces;
 using GerencTicketsRefeicao.Models;
 
 
-namespace GerenciadorValeRefeicoes.BLL
+namespace GerencTicketsRefeicao.BLL.Services
 {
     public class FuncionarioService : IFuncionarioService // Implementa a interface IFuncionarioServico
     {

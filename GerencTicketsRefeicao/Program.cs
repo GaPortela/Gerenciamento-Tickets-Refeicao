@@ -4,8 +4,12 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Configuration;
-using MySql.Data.MySqlClient;
+using Microsoft.Extensions.DependencyInjection;
 using GerencTicketsRefeicao.UI;
+using GerencTicketsRefeicao.DAL.Implements;
+using GerencTicketsRefeicao.DAL.Interfaces;
+using GerencTicketsRefeicao.BLL.Interfaces;
+using GerencTicketsRefeicao.BLL.Services;
 
 namespace GerencTicketsRefeicao
 {
@@ -17,9 +21,18 @@ namespace GerencTicketsRefeicao
         [STAThread]
         static void Main()
         {
+
+            var services = new ServiceCollection();
+
+            string connectionString = ConfigurationManager.ConnectionStrings["MySqlConnection"].ConnectionString;
+
+            services.AddTransient<IFuncionarioRepositorio>(sp => new FuncionarioRepositorio(connectionString));
+            services.AddTransient<ITicketRepositorio>(sp => new TicketRepositorio(connectionString));
+            services.AddTransient<IFuncionarioService, FuncionarioService>();
+
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new FormTelaInicial());
+            Application.Run(new FormPrincipal());
         }
     }
 }

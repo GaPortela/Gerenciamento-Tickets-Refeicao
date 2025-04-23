@@ -1,6 +1,6 @@
 ﻿namespace GerencTicketsRefeicao.UI
 {
-    partial class FormTelaInicial
+    partial class FormPrincipal
     {
         /// <summary>
         /// Required designer variable.

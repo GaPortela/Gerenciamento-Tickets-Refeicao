@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace GerencTicketsRefeicao.UI
 {
-    public partial class FormTelaInicial : Form
+    public partial class FormPrincipal : Form
     {
-        public FormTelaInicial()
+        public FormPrincipal()
         {
             InitializeComponent();
         }
