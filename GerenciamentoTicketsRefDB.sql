@@ -1,8 +1,8 @@
 -- Criação do Banco de Dados
-CREATE DATABASE IF NOT EXISTS gerenciamentoTicketsRef;
+CREATE DATABASE IF NOT EXISTS GerencTicketsRef;
 
 -- Usa o Banco de Dados
-USE gerenciamentoTicketsRef;
+USE GerencTicketsRef;
 
 -- Cria a Tabela funcionarios
 CREATE TABLE IF NOT EXISTS funcionarios (
@@ -22,3 +22,5 @@ CREATE TABLE IF NOT EXISTS ticketsRef (
     dataAltTr DATETIME NOT NULL,
     FOREIGN KEY (funcionarioId) REFERENCES funcionarios(id)
 );
+
+drop schema gerencticketsref;

@@ -11,7 +11,7 @@ namespace GerencTicketsRefeicao.Models
         public int Id { get; set; }
         public string Nome { get; set; }
         public string CPF { get; set; }
-        public string Situacao { get; set; } // "A" para Ativo, "I" para Inativo
+        public char Situacao { get; set; } // "A" para Ativo, "I" para Inativo
         public DateTime DataAlteracao { get; set; }
     }
 }

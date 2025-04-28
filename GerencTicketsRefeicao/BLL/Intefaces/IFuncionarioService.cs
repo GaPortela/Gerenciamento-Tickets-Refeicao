@@ -9,9 +9,9 @@ namespace GerencTicketsRefeicao.BLL.Interfaces
 {
     public interface IFuncionarioService
     {
-        List<Funcionario> GetAllFunc();
-        Funcionario GetFuncById(int id);
-        void AddFunc(Funcionario funcionario);
+        List<Funcionario> ObterTodos();
+        Funcionario ObterPorId(int id);
+        void Adicionar(Funcionario funcionario);
         void UpdateFunc(Funcionario funcionario);
     }
 }

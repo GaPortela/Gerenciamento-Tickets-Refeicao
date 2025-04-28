@@ -8,6 +8,7 @@ using GerencTicketsRefeicao.DAL.Interfaces;
 using GerencTicketsRefeicao.Models;
 
 
+
 namespace GerencTicketsRefeicao.BLL.Services
 {
     public class FuncionarioService : IFuncionarioService // Implementa a interface IFuncionarioServico
@@ -18,17 +19,17 @@ namespace GerencTicketsRefeicao.BLL.Services
             _funcionarioRepositorio = funcionarioRepositorio;
         }
 
-        public List<Funcionario> GetAllFunc()
+        public List<Funcionario> ObterTodos()
         {
             return _funcionarioRepositorio.GetAll();
         }
-        public Funcionario GetFuncById(int id)
+        public Funcionario ObterPorId(int id)
         {
             return _funcionarioRepositorio.GetById(id);
         }
 
         // Adiciona um novo funcionário e verifica se o CPF já existe e se é válido
-        public void AddFunc(Funcionario funcionario)
+        public void Adicionar(Funcionario funcionario)
         {
             if (String.IsNullOrEmpty(funcionario.Nome))
             {

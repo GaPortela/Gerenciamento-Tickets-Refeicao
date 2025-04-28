@@ -11,6 +11,8 @@ using GerencTicketsRefeicao.DAL.Interfaces;
 using GerencTicketsRefeicao.BLL.Interfaces;
 using GerencTicketsRefeicao.BLL.Services;
 
+
+
 namespace GerencTicketsRefeicao
 {
     internal static class Program
@@ -22,17 +24,24 @@ namespace GerencTicketsRefeicao
         static void Main()
         {
 
-            var services = new ServiceCollection();
+            Application.EnableVisualStyles();
+            Application.SetCompatibleTextRenderingDefault(false);
 
             string connectionString = ConfigurationManager.ConnectionStrings["MySqlConnection"].ConnectionString;
 
+            var services = new ServiceCollection();
+
             services.AddTransient<IFuncionarioRepositorio>(sp => new FuncionarioRepositorio(connectionString));
             services.AddTransient<ITicketRepositorio>(sp => new TicketRepositorio(connectionString));
-            services.AddTransient<IFuncionarioService, FuncionarioService>();
+            services.AddTransient<IFuncionarioService, FuncionarioService>(); // Implementa a interface IFuncionarioService
+            services.AddTransient<ITicketService, TicketService>(); // Implementa a interface ITicketService
 
-            Application.EnableVisualStyles();
-            Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new FormPrincipal());
+            var serviceProvider = services.BuildServiceProvider();
+
+            var funcionarioService = serviceProvider.GetRequiredService<IFuncionarioService>();
+            var ticketService = serviceProvider.GetRequiredService<ITicketService>();
+
+            Application.Run(new FormPrincipal(funcionarioService, ticketService));
         }
     }
 }
