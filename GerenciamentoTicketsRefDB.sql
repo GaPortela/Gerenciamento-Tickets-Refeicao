@@ -19,7 +19,7 @@ CREATE TABLE IF NOT EXISTS ticketsRef (
     funcionarioId INT NOT NULL,
     quantidade INT NOT NULL,
     situacao CHAR(1) NOT NULL CHECK (situacao IN ('A', 'I')),
-    dataAltTr DATETIME NOT NULL,
+    dataAlteracao DATETIME NOT NULL,
     FOREIGN KEY (funcionarioId) REFERENCES funcionarios(id)
 );
 

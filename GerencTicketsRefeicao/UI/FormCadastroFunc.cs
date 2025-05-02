@@ -83,51 +83,40 @@ namespace GerencTicketsRefeicao.UI
         //adiciona ou salva o funcionário
         private void addOuSalvarFuncionario(int idFuncionario)
         {
-            
-
-
             try
             {
-                // Verifica se o ID do funcionário é maior que 0 (indica que é um registro existente)
+                var funcionario = idFuncionario != 0
+                    ? _funcionarioService.ObterPorId(idFuncionario)
+                    : new Funcionario();
+
+                // Atualiza ou define os dados do funcionário
+                funcionario.Nome = txtNome.Text;
+                funcionario.CPF = mtbCPF.Text;
+                funcionario.Situacao = Convert.ToChar(cbSituacao.Text);
+                funcionario.DataAlteracao = DateTime.Now;
+
                 if (idFuncionario != 0)
                 {
-
-                    var funcionario = _funcionarioService.ObterPorId(idFuncionario);// Obtém o funcionário existente
-
-                    // Atualiza os dados do funcionário
-                    funcionario.Nome = txtNome.Text;
-                    funcionario.CPF = mtbCPF.Text;
-                    funcionario.Situacao = Convert.ToChar(cbSituacao.Text);
-                    funcionario.DataAlteracao = DateTime.Now;
                     // Atualiza o funcionário existente
                     _funcionarioService.Atualizar(funcionario);
-
-                    // Envia uma mensagem de sucesso
                     MessageBox.Show("Funcionário atualizado com sucesso!", "Sucesso", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
                 else
                 {
-                    var funcionario = new Funcionario
-                    {
-                        Nome = txtNome.Text,
-                        CPF = mtbCPF.Text,
-                        Situacao = Convert.ToChar(cbSituacao.Text),
-                        DataAlteracao = DateTime.Now
-                    };
                     // Adiciona um novo funcionário
                     _funcionarioService.Adicionar(funcionario);
-                    // Envia uma mensagem de sucesso
                     MessageBox.Show("Funcionário cadastrado com sucesso!", "Sucesso", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
             }
             catch (Exception ex)
             {
-                // Envia uma mensagem de erro
                 MessageBox.Show($"Erro ao salvar o funcionário: {ex.Message}", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return;
             }
-            // Fecha o formulário após salvar
-            this.Close();
+            finally
+            {
+                // Fecha o formulário após salvar ou em caso de erro
+                this.Close();
+            }
         }
 
     }

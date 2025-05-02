@@ -33,7 +33,7 @@ namespace GerencTicketsRefeicao.DAL.Implements
             {
                 using (var connection = new MySqlConnection(_connectionString))
                 {
-                    string query = "INSERT INTO ticketsRef (funcionarioId, quantidade, situacao, dataAltTr) VALUES (@FuncionarioId, @Quantidade, @Situacao, @DataModificacao)";
+                    string query = "INSERT INTO ticketsRef (funcionarioId, quantidade, situacao, dataAlteracao) VALUES (@FuncionarioId, @Quantidade, @Situacao, @DataAlteracao)";
                     connection.Execute(query, ticket);
                 }
             }
@@ -62,6 +62,16 @@ namespace GerencTicketsRefeicao.DAL.Implements
             }
         }
 
+        /// Método para obter um ticket pelo ID do funcionário (Chave estrangeira)
+
+        public List<Ticket> GetByFuncionarioId(int funcionarioId)
+        {
+            using (var connection = new MySqlConnection(_connectionString))
+            {
+                return connection.Query<Ticket>("SELECT * FROM ticketsRef WHERE funcionarioId = @FuncionarioId", new { FuncionarioId = funcionarioId }).AsList();
+            }
+        }
+
         /// Método para obter tickets filtrados por funcionário
         public void Update(Ticket ticket)
         {
@@ -69,7 +79,7 @@ namespace GerencTicketsRefeicao.DAL.Implements
             {
                 using (var connection = new MySqlConnection(_connectionString))
                 {
-                    string sql = @"UPDATE ticketsRef SET funcionarioId = @FuncionarioId, quantidade = @Quantidade, situacao = @Situacao, dataAltTr = @DataModificacao WHERE Id = @Id";
+                    string sql = @"UPDATE ticketsRef SET funcionarioId = @FuncionarioId, quantidade = @Quantidade, situacao = @Situacao, dataAlteracao = @DataAlteracao WHERE Id = @Id";
                     connection.Execute(sql, ticket);
                 }
             }

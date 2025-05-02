@@ -18,9 +18,11 @@ namespace GerencTicketsRefeicao.BLL.Interfaces
 {
     public interface ITicketService
     {
-        List<Ticket> ObterTodos();
-        Ticket ObterPorId(int id);
         void Adicionar(Ticket ticket);
         void Atualizar(Ticket ticket);
+        List<Ticket> ObterTodos();
+        Ticket ObterPorId(int id);
+        List<Ticket> ObterPorFuncionarioId(int funcionarioId);
+
     }
 }
