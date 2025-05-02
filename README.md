@@ -1,17 +1,17 @@
-# Gerenciador de Tickets RefeiÁ„o
+# Gerenciador de Tickets Refei√ß√£o
 
-DESCRI«√O
-O projeto consiste em um sistema de gerenciamento de tickets refeiÁ„o, onde o usu·rio pode adicionar, editar e remover funcionarios e seus respectivos tickets refeiÁ„o.O sistema tambÈm permite que o usu·rio visualize os tickets refeiÁ„o de todos os funcion·rios cadastrados.
+DESCRI√á√ÉO
+O projeto consiste em um sistema de gerenciamento de tickets refei√ß√£o, onde o usu√°rio pode adicionar, editar e remover funcionarios e seus respectivos tickets refei√ß√£o.O sistema tamb√©m permite que o usu√°rio visualize os tickets refei√ß√£o de todos os funcion√°rios cadastrados.
 
 ## Funcionalidades
-- Adicionar funcion·rio
-- Editar funcion·rio
-- Visualizar Funcion·rios
-- Filtrar funcion·rios por nome e CPF
-- Adicionar tickets refeiÁ„o para cada funcion·rio cadastrado ATIVO
-- Editar registros para tickets refeiÁ„o
-- Visualizar registros tickets refeiÁ„o
-- Filtrar registros tickets refeiÁ„o por funcion·rio
+- Adicionar funcion√°rio
+- Editar funcion√°rio
+- Visualizar Funcion√°rios
+- Filtrar funcion√°rios por nome e CPF
+- Adicionar tickets refei√ß√£o para cada funcion√°rio cadastrado ATIVO
+- Editar registros para tickets refei√ß√£o
+- Visualizar registros tickets refei√ß√£o
+- Filtrar registros tickets refei√ß√£o por funcion√°rio
 
 ## Tecnologias Utilizadas
 - C#
@@ -20,38 +20,38 @@ O projeto consiste em um sistema de gerenciamento de tickets refeiÁ„o, onde o us
 - Dapper (Micro ORM)
 
 ## Arquitetura Utilizada
-A soluÁ„o foi desenvolvida utilizando o padr„o de arquitetura que utiliza-se de camadas separando as responsabilidades do sistema.
-- Camada de ApresentaÁ„o(UI): Respons·vel pela interface gr·fica do usu·rio (Windows Forms).
-- Camada de NegÛcio(BLL): Respons·vel pela lÛgica de negÛcio do sistema.
-- Camada de Acesso a Dados(DAL): Respons·vel pela comunicaÁ„o com o banco de dados.
-- Camada de Entidade(Models): Respons·vel por representar as entidades do sistema.
+A solu√ß√£o foi desenvolvida utilizando o padr√£o de arquitetura que utiliza-se de camadas separando as responsabilidades do sistema.
+- Camada de Apresenta√ß√£o(UI): Respons√°vel pela interface gr√°fica do usu√°rio (Windows Forms).
+- Camada de Neg√≥cio(BLL): Respons√°vel pela l√≥gica de neg√≥cio do sistema.
+- Camada de Acesso a Dados(DAL): Respons√°vel pela comunica√ß√£o com o banco de dados.
+- Camada de Entidade(Models): Respons√°vel por representar as entidades do sistema.
 
 ## BLL (Business Logic Layer)
-A camada de BLL È respons·vel por implementar a lÛgica de negÛcio do sistema. Ela utiliza a camada de DAL para realizar operaÁıes no banco de dados e retorna os resultados para a camada de UI. A BLL tambÈm valida os dados antes de envi·-los para a DAL.
+A camada de BLL √© respons√°vel por implementar a l√≥gica de neg√≥cio do sistema. Ela utiliza a camada de DAL para realizar opera√ß√µes no banco de dados e retorna os resultados para a camada de UI. A BLL tamb√©m valida os dados antes de envi√°-los para a DAL.
 
 ## DAL (Data Access Layer)
-A camada de DAL È respons·vel por realizar a comunicaÁ„o com o banco de dados. Ela utiliza o Dapper como micro ORM para facilitar a execuÁ„o de consultas SQL e mapeamento de objetos. A DAL È respons·vel por executar as operaÁıes CRUD (Create, Read, Update, Delete) no banco de dados.
+A camada de DAL √© respons√°vel por realizar a comunica√ß√£o com o banco de dados. Ela utiliza o Dapper como micro ORM para facilitar a execu√ß√£o de consultas SQL e mapeamento de objetos. A DAL √© respons√°vel por executar as opera√ß√µes CRUD (Create, Read, Update, Delete) no banco de dados.
 
 ## Models
-A camada de Models È respons·vel por representar as entidades do sistema. Cada entidade possui suas propriedades e mÈtodos relacionados. As entidades s„o utilizadas pela camada de BLL para realizar operaÁıes no banco de dados.
+A camada de Models √© respons√°vel por representar as entidades do sistema. Cada entidade possui suas propriedades e m√©todos relacionados. As entidades s√£o utilizadas pela camada de BLL para realizar opera√ß√µes no banco de dados.
 
 ## UI
-A camada de UI È respons·vel pela interface gr·fica do usu·rio. Ela utiliza o Windows Forms para criar as telas do sistema. A UI se comunica com a camada de BLL para realizar operaÁıes no sistema e exibir os resultados para o usu·rio.
+A camada de UI √© respons√°vel pela interface gr√°fica do usu√°rio. Ela utiliza o Windows Forms para criar as telas do sistema. A UI se comunica com a camada de BLL para realizar opera√ß√µes no sistema e exibir os resultados para o usu√°rio.
 
-## InstalaÁ„o e execuÁ„o
-1. Clone o repositÛrio do GitHub para sua m·quina local.
+## Instala√ß√£o e execu√ß√£o
+1. Clone o reposit√≥rio do GitHub para sua m√°quina local.
 2. Abra o projeto no Visual Studio.
-3. Certifique-se de ter o MySQL instalado e configurado em sua m·quina.
-4. Execute o arquivo `GerenciamentoTicketsRefDB.sql` para criar o banco de dados e as tabelas necess·rias.  
-5. Configure a string de conex„o no arquivo `app.config` para apontar para o seu banco de dados MySQL.
- `<connectionStrings>
-    <add name="MySqlConnection" connectionString="Server=localhost;Database=GerenciadorValeRefeicoes;Uid=root;Pwd=sua_senha;"/>
-</connectionStrings>`
+3. Certifique-se de ter o MySQL instalado e configurado em sua m√°quina.
+4. Execute o arquivo `GerenciamentoTicketsRefDB.sql` para criar o banco de dados e as tabelas necess√°rias.  
+5. Configure a string de conex√£o no arquivo `app.config` para apontar para o seu banco de dados MySQL.
+ ``<connectionStrings>
+    <add name="MySqlConnection" connectionString="Server=localhost;Database=GerenciadorValeRefeicoes;Uid=root;Pwd=<senha>;"/>
+</connectionStrings>``
 6. Compile e execute o projeto no Visual Studio.
 
 ## Pacotes NuGet
-- Dapper: Micro ORM para facilitar a comunicaÁ„o com o banco de dados MySQL.
+- Dapper: Micro ORM para facilitar a comunica√ß√£o com o banco de dados MySQL.
 - MySql.Data: Driver MySQL para .NET.
 
-## ContribuiÁ„o
-Sinta-se ‡ vontade para contribuir com o projeto. VocÍ pode fazer isso de v·rias maneiras:
+## Contribui√ß√£o
+Sinta-se √† vontade para contribuir com o projeto. Voc√™ pode fazer isso de v√°rias maneiras:
