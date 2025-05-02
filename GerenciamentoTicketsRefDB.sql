@@ -13,7 +13,7 @@ CREATE TABLE IF NOT EXISTS funcionarios (
     dataAlteracao DATETIME NOT NULL
 );
 
--- Cria a Tabela valeRefeicao
+-- Cria a Tabela ticketsRef
 CREATE TABLE IF NOT EXISTS ticketsRef (
     id INT PRIMARY KEY AUTO_INCREMENT,
     funcionarioId INT NOT NULL,
