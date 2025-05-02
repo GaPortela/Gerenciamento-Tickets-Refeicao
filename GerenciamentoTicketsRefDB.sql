@@ -10,7 +10,7 @@ CREATE TABLE IF NOT EXISTS funcionarios (
     nome VARCHAR(255) NOT NULL,
     cpf VARCHAR(11) NOT NULL UNIQUE,
     situacao CHAR(1) NOT NULL CHECK (situacao IN ('A', 'I')),
-    dataAltFuncs DATETIME NOT NULL
+    dataAlteracao DATETIME NOT NULL
 );
 
 -- Cria a Tabela valeRefeicao
@@ -23,4 +23,4 @@ CREATE TABLE IF NOT EXISTS ticketsRef (
     FOREIGN KEY (funcionarioId) REFERENCES funcionarios(id)
 );
 
-drop schema gerencticketsref;
+

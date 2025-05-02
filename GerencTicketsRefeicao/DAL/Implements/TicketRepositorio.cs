@@ -6,6 +6,15 @@ using GerencTicketsRefeicao.DAL.Interfaces;
 using GerencTicketsRefeicao.Models;
 using MySql.Data.MySqlClient;
 
+/*
+ * GerencTicketsRefeicao - Sistema de Gerenciamento de Tickets de Refeição
+ * 
+ * Este arquivo contém a implementação da classe TicketRepositorio, que é responsável por manipular os dados dos tickets no banco de dados.
+ * 
+ * Autor: Guilherme Alves Portela
+ * Data: 01/05/2025
+ */
+
 namespace GerencTicketsRefeicao.DAL.Implements
 {
     public class TicketRepositorio : ITicketRepositorio
@@ -17,6 +26,7 @@ namespace GerencTicketsRefeicao.DAL.Implements
             _connectionString = connectionString;
         }
 
+        /// Método para adicionar um novo ticket
         public void Add(Ticket ticket)
         {
             try
@@ -34,6 +44,7 @@ namespace GerencTicketsRefeicao.DAL.Implements
             }
         }
 
+        /// Método para obter todos os tickets
         public List<Ticket> GetAll()
         {
             using (var connection = new MySqlConnection(_connectionString))
@@ -42,6 +53,7 @@ namespace GerencTicketsRefeicao.DAL.Implements
             }
         }
 
+        /// Método para obter um ticket pelo ID
         public Ticket GetById(int id)
         {
             using (var connection = new MySqlConnection(_connectionString))
@@ -50,6 +62,7 @@ namespace GerencTicketsRefeicao.DAL.Implements
             }
         }
 
+        /// Método para obter tickets filtrados por funcionário
         public void Update(Ticket ticket)
         {
             try

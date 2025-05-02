@@ -4,6 +4,15 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
+/*
+ * GerencTicketsRefeicao - Sistema de Gerenciamento de Tickets de Refeição
+ * 
+ * Este arquivo contém a definição da classe Ticket, que representa um ticket de refeição.
+ * 
+ * Autor: Guilherme Alves Portela
+ * Data: 01/05/2025
+ */
+
 namespace GerencTicketsRefeicao.Models
 {
     public class Ticket

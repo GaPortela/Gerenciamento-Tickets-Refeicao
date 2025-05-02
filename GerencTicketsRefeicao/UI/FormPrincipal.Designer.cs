@@ -33,12 +33,14 @@
             this.btnGerencFunc = new System.Windows.Forms.Button();
             this.btnGerencTickets = new System.Windows.Forms.Button();
             this.panelFormularios = new System.Windows.Forms.Panel();
+            this.btnSair = new System.Windows.Forms.Button();
             this.panelHeader.SuspendLayout();
             this.SuspendLayout();
             // 
             // panelHeader
             // 
             this.panelHeader.BackColor = System.Drawing.Color.LightSlateGray;
+            this.panelHeader.Controls.Add(this.btnSair);
             this.panelHeader.Controls.Add(this.labelTitle);
             this.panelHeader.Controls.Add(this.btnGerencFunc);
             this.panelHeader.Controls.Add(this.btnGerencTickets);
@@ -92,6 +94,19 @@
             this.panelFormularios.Size = new System.Drawing.Size(784, 390);
             this.panelFormularios.TabIndex = 1;
             // 
+            // btnSair
+            // 
+            this.btnSair.BackColor = System.Drawing.Color.IndianRed;
+            this.btnSair.FlatAppearance.BorderSize = 0;
+            this.btnSair.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnSair.Location = new System.Drawing.Point(12, 12);
+            this.btnSair.Name = "btnSair";
+            this.btnSair.Size = new System.Drawing.Size(75, 23);
+            this.btnSair.TabIndex = 2;
+            this.btnSair.Text = "SAIR";
+            this.btnSair.UseVisualStyleBackColor = false;
+            this.btnSair.Click += new System.EventHandler(this.btnSair_Click);
+            // 
             // FormPrincipal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -116,5 +131,6 @@
         private System.Windows.Forms.Button btnGerencTickets;
         private System.Windows.Forms.Label labelTitle;
         private System.Windows.Forms.Button btnGerencFunc;
+        private System.Windows.Forms.Button btnSair;
     }
 }

@@ -9,6 +9,13 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using GerencTicketsRefeicao.BLL.Interfaces;
 
+/*
+*Nome do arquivo: FormPrincipal.cs
+* Descrição: Formulário principal da aplicação.
+ * Autor: Guilherme Alves Portela
+*/
+
+
 namespace GerencTicketsRefeicao.UI
 {
     public partial class FormPrincipal : Form
@@ -25,22 +32,33 @@ namespace GerencTicketsRefeicao.UI
             InitializeComponent();
         }
 
+        // Evento de carregamento do formulário principal
         private void FormPrincipal_Load(object sender, EventArgs e)
         {
             // Carregar o painel com o formulário padrão, se necessário
             CarregarFormulario(new FormExibirTickets(_funcionarioService, _ticketService));
         }
 
+        // Evento de clique no botão "Gerenciar Funcionários"
         private void btnGerencFuncionarios_Click(object sender, EventArgs e)
         {
             CarregarFormulario(new FormExibirFunc(_funcionarioService, _ticketService));
         }
 
+        // Evento de clique no botão "Gerenciar Tickets"
         private void btnGerencTickets_Click(object sender, EventArgs e)
         {
             CarregarFormulario(new FormExibirTickets(_funcionarioService, _ticketService));
         }
 
+        // Evento de clique no botão "Sair"
+        private void btnSair_Click(object sender, EventArgs e)
+        {
+            // Fecha a aplicação
+            Application.Exit();
+        }
+
+        // Funcao para carregar o formulário no painel
         private void CarregarFormulario(Form formulario)
         {
             // Limpa o painel antes de carregar um novo formulário

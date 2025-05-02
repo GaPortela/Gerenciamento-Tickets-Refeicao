@@ -7,6 +7,16 @@ using GerencTicketsRefeicao.BLL.Interfaces;
 using GerencTicketsRefeicao.DAL.Interfaces;
 using GerencTicketsRefeicao.Models;
 
+/*
+ * GerencTicketsRefeicao - Sistema de Gerenciamento de Tickets de Refeição
+ * 
+ * Este arquivo contém a implementação da classe TicketService, que gerencia as operações relacionadas aos tickets de refeição.
+ * 
+ * Autor: Guilherme Alves Portela
+ * Data: 01/05/2025
+ */
+
+
 namespace GerencTicketsRefeicao.BLL.Services
 {
 
@@ -21,19 +31,19 @@ namespace GerencTicketsRefeicao.BLL.Services
             _funcionarioRepositorio = funcionarioRepositorio;
         }
 
+        // Método para obter todos os tickets
         public List<Ticket> ObterTodos()
         {
             return _ticketRepositorio.GetAll();
         }
 
+        // Método para obter um ticket pelo ID
         public Ticket ObterPorId(int id)
         {
             return _ticketRepositorio.GetById(id);
         }
 
-        /* Método para adicionar um vale-refeição
-         Este método verifica se o funcionário existe e se está ativo antes de adicionar o vale-refeição.
-         Se o funcionário não existir ou estiver inativo, uma exceção é lançada.*/
+        // Método para adicionar um novo ticket
         public void Adicionar(Ticket ticket)
         {
             if (ticket.FuncionarioId <= 0)
@@ -64,6 +74,7 @@ namespace GerencTicketsRefeicao.BLL.Services
 
         }
 
+        // Método para atualizar um ticket existente
         public void Atualizar(Ticket ticket)
         {
             if (ticket.FuncionarioId <= 0)
