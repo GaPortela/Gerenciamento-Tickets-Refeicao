@@ -40,7 +40,7 @@ namespace GerencTicketsRefeicao.UI
         }
 
         // Evento de clique no botão "Novo Registro"
-        private void btnAddFunc_Click(object sender, EventArgs e)
+        private void btnNovoRegistro_Click(object sender, EventArgs e)
         {
             // Cria uma nova instância do formulário de cadastro de funcionário
             abrirFormularioCadastroFunc(0); // Passa 0 para indicar que é um novo registro

@@ -43,19 +43,46 @@ namespace GerencTicketsRefeicao.BLL.Services
             return _ticketRepositorio.GetById(id);
         }
 
+        // Método para obter tickets por ID de funcionário
+        public List<Ticket> ObterPorFuncionarioId(int funcionarioId)
+        {
+            return _ticketRepositorio.GetByFuncionarioId(funcionarioId);
+        }
+
         // Método para adicionar um novo ticket
         public void Adicionar(Ticket ticket)
         {
+            // Verifica se o campo FuncionarioId está vazio
             if (ticket.FuncionarioId <= 0)
             {
                 throw new ArgumentException("O Funcionário é obrigatório.");
             }
 
+            // Verifica se o campo Situacao está vazio
+            if (string.IsNullOrEmpty(ticket.Situacao))
+            {
+                throw new ArgumentException("A situação do ticket é obrigatória.");
+            }
+
+            // Verifica se o campo Situacao é Ativo ou Inativo
+            if (ticket.Situacao != "A" && ticket.Situacao != "I")
+            {
+                throw new ArgumentException("A situação deve ser 'A' (Ativo) ou 'I' (Inativo).");
+            }
+
+            // Verifica se o campo Situacao é Ativo
+            if (ticket.Situacao == "I")
+            {
+                throw new ArgumentException("O ticket não pode ser cadastrado como 'I' (Inativo).");
+            }
+
+            // Verifica se o campo Quantidade está vazio
             if (ticket.Quantidade <= 0)
             {
                 throw new ArgumentException("A quantidade de tickets é obrigatória.");
             }
 
+            // Verifica se o funcionario existe
             var funcionario = _funcionarioRepositorio.GetById(ticket.FuncionarioId);
 
             if (funcionario == null)
@@ -63,6 +90,7 @@ namespace GerencTicketsRefeicao.BLL.Services
                 throw new ArgumentException("Funcionário não encontrado.");
             }
 
+            // Verifica se o funcionario está ativo
             if (funcionario.Situacao != 'A')
             {
                 throw new ArgumentException("Não é possível adicionar tickets para um funcionário inativo.");
@@ -77,16 +105,19 @@ namespace GerencTicketsRefeicao.BLL.Services
         // Método para atualizar um ticket existente
         public void Atualizar(Ticket ticket)
         {
+            // Verifica se o campo FuncionarioId está vazio
             if (ticket.FuncionarioId <= 0)
             {
                 throw new ArgumentException("O Funcionário é obrigatório.");
             }
 
+            // Verifica se o campo Quantidade está vazio
             if (ticket.Quantidade <= 0)
             {
                 throw new ArgumentException("A quantidade de tickets é obrigatória.");
             }
 
+            // Verifica se o funcionario existe
             var funcionario = _funcionarioRepositorio.GetById(ticket.FuncionarioId);
 
             if (funcionario == null)
@@ -94,6 +125,19 @@ namespace GerencTicketsRefeicao.BLL.Services
                 throw new ArgumentException("Funcionário não encontrado.");
             }
 
+            // Verifica se o campo Situacao está vazio
+            if (string.IsNullOrEmpty(ticket.Situacao))
+            {
+                throw new ArgumentException("A situação do ticket é obrigatória.");
+            }
+
+            // Verifica se o campo Situacao é Ativo ou Inativo
+            if (ticket.Situacao != "A" && ticket.Situacao != "I")
+            {
+                throw new ArgumentException("A situação deve ser 'A' (Ativo) ou 'I' (Inativo).");
+            }
+
+            // Verifica se o funcionario está ativo
             if (funcionario.Situacao != 'A')
             {
                 throw new ArgumentException("Não é possível atualizar tickets para um funcionário inativo.");

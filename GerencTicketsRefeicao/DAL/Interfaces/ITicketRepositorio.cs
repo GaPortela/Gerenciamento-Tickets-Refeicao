@@ -15,8 +15,9 @@ namespace GerencTicketsRefeicao.DAL.Interfaces
     public interface ITicketRepositorio
     {
         void Add(Ticket ticket);
+        void Update(Ticket ticket);
         List<Ticket> GetAll();
         Ticket GetById(int id);
-        void Update(Ticket ticket);
+        List<Ticket> GetByFuncionarioId(int funcionarioId);
     }
 }
